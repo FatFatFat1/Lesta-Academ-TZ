@@ -13,7 +13,9 @@ public class Plate : MonoBehaviour
     [SerializeField] private Sprite _filledSprite;
 
 
-    private bool isSelected = false;
+    [SerializeField] private bool isSelected = false;
+
+    public bool IsSelected => isSelected;
 
     public void UpdateState(string state)
     {
