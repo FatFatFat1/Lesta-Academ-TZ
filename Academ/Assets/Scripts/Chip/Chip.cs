@@ -4,5 +4,11 @@ using UnityEngine;
 
 public class Chip : MonoBehaviour
 {
-    
+    public void Move(GameObject oldPlate, GameObject newPlate)
+    {
+        transform.position = newPlate.transform.position;
+        newPlate.GetComponent<Plate>().myChip = gameObject;
+        oldPlate.GetComponent<Plate>().myChip = null;
+
+    }
 }

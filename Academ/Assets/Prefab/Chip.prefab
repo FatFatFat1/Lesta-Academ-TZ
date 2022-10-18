@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2648725452275318999}
   - component: {fileID: 73282067824446629}
+  - component: {fileID: 3208065195606654951}
   m_Layer: 0
   m_Name: Chip
   m_TagString: Chip
@@ -84,3 +85,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3208065195606654951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5403796931856355816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3019c2bcc155273418da685832622d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

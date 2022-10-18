@@ -6,8 +6,6 @@ public class Plate : MonoBehaviour
 {
     private string _state;
 
-    public string State => _state;
-
     [SerializeField] private Sprite _blockSprite;
     [SerializeField] private Sprite _freeSprite;
     [SerializeField] private GameObject[] nearPlate = new GameObject[8];
@@ -15,9 +13,11 @@ public class Plate : MonoBehaviour
 
     [SerializeField] private bool isSelected = false;
 
-
+    public string State => _state;
     public bool IsSelected => isSelected;
     public GameObject[] NearPlate => nearPlate;
+
+    public GameObject myChip;
 
     private void Start()
     {
@@ -82,10 +82,13 @@ public class Plate : MonoBehaviour
                 }
             }
         }
-
-        if (oldPlate != null && oldPlate != gameObject && isNear)
+        if (oldPlate != null && oldPlate != gameObject)
         {
             GlobalVar.GameController.GetComponent<SelectController>().Reselect(oldPlate, gameObject);
+            if(oldPlate.GetComponent<Plate>().myChip != null && isNear)
+            {
+                oldPlate.GetComponent<Plate>().myChip.GetComponent<Chip>().Move(oldPlate,gameObject);
+            }
         }
         else if (oldPlate == null || oldPlate == gameObject)
         {
