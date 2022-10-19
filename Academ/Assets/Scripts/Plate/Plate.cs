@@ -8,7 +8,7 @@ public class Plate : MonoBehaviour
 
     [SerializeField] private Sprite _blockSprite;
     [SerializeField] private Sprite _freeSprite;
-    [SerializeField] private GameObject[] nearPlate = new GameObject[8];
+    [SerializeField] private GameObject[] nearPlate = new GameObject[3];
 
 
     [SerializeField] private bool isSelected = false;
@@ -29,14 +29,24 @@ public class Plate : MonoBehaviour
     void FindNearPlate()
     {
         Vector2 myPosition = transform.position;
-        Collider2D[] hits = Physics2D.OverlapCircleAll(myPosition, 2f);
-        int f = 0;
-        foreach (Collider2D i in hits)
+        for(int i = 0; i<=3;i++)
         {
-            if (i.gameObject != null)
+            RaycastHit2D hit = Physics2D.Raycast(myPosition, Vector2.up);
+            if (i == 1)
             {
-                nearPlate[f] = i.gameObject;
-                f++;
+                hit = Physics2D.Raycast(myPosition, Vector2.right);
+            }
+            if (i == 2)
+            {
+                hit = Physics2D.Raycast(myPosition, Vector2.left);
+            }
+            if (i == 3)
+            {
+                hit = Physics2D.Raycast(myPosition, Vector2.down);
+            }
+            if (hit.collider != null)
+            {
+                nearPlate[i] = hit.collider.gameObject;
             }
         }
     }
