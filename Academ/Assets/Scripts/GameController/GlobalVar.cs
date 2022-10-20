@@ -7,10 +7,10 @@ public class GlobalVar : MonoBehaviour
     //Состояния плиток
     public const string BLOCKSTATE = "Block";
     public const string FREESTATE = "Free";
-    public const string FILLEDSTATE = "Filled";
 
     public static GameObject[] AllPlate;
     public static GameObject[] AllChip;
+    [SerializeField] public ColorsChip[] typyOfChip;
 
     public static GameObject GameController;
     private void Awake()
@@ -19,4 +19,15 @@ public class GlobalVar : MonoBehaviour
         AllPlate = GameObject.FindGameObjectsWithTag("Plate");
         AllChip = GameObject.FindGameObjectsWithTag("Chip");
     }
+
+
+
+
+}
+[System.Serializable]
+public class ColorsChip
+{
+    [SerializeField] public int count;
+    [SerializeField] public Color color;
+    [SerializeField] public string name;
 }

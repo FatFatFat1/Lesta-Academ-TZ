@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Plate : MonoBehaviour
 {
-    private string _state;
-
+    [SerializeField] private string _state;
     [SerializeField] private Sprite _blockSprite;
     [SerializeField] private Sprite _freeSprite;
-    [SerializeField] private GameObject[] nearPlate = new GameObject[3];
+    [SerializeField] private GameObject[] nearPlate = new GameObject[4];
 
 
     [SerializeField] private bool isSelected = false;
@@ -29,7 +28,7 @@ public class Plate : MonoBehaviour
     void FindNearPlate()
     {
         Vector2 myPosition = transform.position;
-        for(int i = 0; i<=3;i++)
+        for (int i = 0; i < 4; i++)
         {
             RaycastHit2D hit = Physics2D.Raycast(myPosition, Vector2.up);
             if (i == 1)
@@ -62,9 +61,6 @@ public class Plate : MonoBehaviour
                 _state = state;
                 GetComponent<SpriteRenderer>().sprite = _freeSprite;
                 break;
-            case GlobalVar.FILLEDSTATE:
-                _state = state;
-                break;
         }
     }
     public void Selected()
@@ -95,15 +91,14 @@ public class Plate : MonoBehaviour
         if (oldPlate != null && oldPlate != gameObject)
         {
             GlobalVar.GameController.GetComponent<SelectController>().Reselect(oldPlate, gameObject);
-            if(oldPlate.GetComponent<Plate>().myChip != null && isNear)
+            if (oldPlate.GetComponent<Plate>().myChip != null && gameObject.GetComponent<Plate>().myChip == null && isNear)
             {
-                oldPlate.GetComponent<Plate>().myChip.GetComponent<Chip>().Move(oldPlate,gameObject);
+                oldPlate.GetComponent<Plate>().myChip.GetComponent<Chip>().Move(oldPlate, gameObject);
             }
         }
         else if (oldPlate == null || oldPlate == gameObject)
         {
             GlobalVar.GameController.GetComponent<SelectController>().Reselect(gameObject);
         }
-
     }
 }

@@ -98,9 +98,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad92e34d6469e54aa3bb1feb2c899bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 
   _blockSprite: {fileID: 0}
   _freeSprite: {fileID: 0}
-  _filledSprite: {fileID: 0}
+  nearPlate:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  isSelected: 0
+  myChip: {fileID: 0}
 --- !u!61 &3397916192560243706
 BoxCollider2D:
   m_ObjectHideFlags: 0
