@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Plate
   - Chip
+  - Pointer
   layers:
   - Default
   - TransparentFX

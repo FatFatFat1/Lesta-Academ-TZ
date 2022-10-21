@@ -11,5 +11,18 @@ public class Chip : MonoBehaviour
         newPlate.GetComponent<Plate>().myChip = gameObject;
         oldPlate.GetComponent<Plate>().myChip = null;
 
+        bool IsWin;
+        for(int i = 0; i < GlobalVar.AllPointer.Length; i++)
+        {
+            IsWin = GlobalVar.AllPointer[i].GetComponent<Pointer>().CheckVictory();
+            if(!IsWin)
+            {
+                break;
+            }
+            else
+            {
+                GlobalVar.GameController.GetComponent<GlobalVar>().Win();
+            }
+        }
     }
 }

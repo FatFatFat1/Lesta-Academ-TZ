@@ -5,18 +5,19 @@ using UnityEngine;
 public class GameInitial : MonoBehaviour
 {
     private ColorsChip[] AllColorChip;
-    [SerializeField] GameObject GameController;
+    [SerializeField] private GameObject[] AllPointer;
+    [SerializeField] private GameObject GameController;
     [SerializeField] private GameObject _ChipPrefab;
 
     private void Start()
     {
         AllColorChip = GameController.GetComponent<GlobalVar>().typyOfChip;
+        AllPointer = GlobalVar.AllPointer;
         for (int i = 0; i <= 2; i++)
         {
             FillMap(i);
+            SetPointerColor(AllPointer[i],i);
         }
-
-
     }
     void FillMap(int color)
     {
@@ -40,4 +41,11 @@ public class GameInitial : MonoBehaviour
             }
         }
     }
+    void SetPointerColor(GameObject pointer ,int color)
+    {
+        ColorsChip myColor = AllColorChip[color];
+        pointer.GetComponent<Pointer>().MyColorName = myColor.name;
+        pointer.GetComponent<SpriteRenderer>().color = myColor.color;
+    }
+
 }

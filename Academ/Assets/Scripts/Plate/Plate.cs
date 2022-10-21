@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Plate : MonoBehaviour
 {
-    [SerializeField] private string _state;
     [SerializeField] private Sprite _blockSprite;
     [SerializeField] private Sprite _freeSprite;
     [SerializeField] private GameObject[] nearPlate = new GameObject[4];
@@ -12,7 +11,6 @@ public class Plate : MonoBehaviour
 
     [SerializeField] private bool isSelected = false;
 
-    public string State => _state;
     public bool IsSelected => isSelected;
     public GameObject[] NearPlate => nearPlate;
 
@@ -47,20 +45,6 @@ public class Plate : MonoBehaviour
             {
                 nearPlate[i] = hit.collider.gameObject;
             }
-        }
-    }
-    public void UpdateState(string state)
-    {
-        switch (state)
-        {
-            case GlobalVar.BLOCKSTATE:
-                _state = state;
-                GetComponent<SpriteRenderer>().sprite = _blockSprite;
-                break;
-            case GlobalVar.FREESTATE:
-                _state = state;
-                GetComponent<SpriteRenderer>().sprite = _freeSprite;
-                break;
         }
     }
     public void Selected()
