@@ -7,6 +7,8 @@ public class GlobalVar : MonoBehaviour
     public static GameObject[] AllPlate;
     public static GameObject[] AllChip;
     public static GameObject[] AllPointer;
+
+    [SerializeField] private bool isWin = false;
     [SerializeField] public ColorsChip[] typyOfChip;
 
     public static GameObject GameController;
@@ -16,7 +18,7 @@ public class GlobalVar : MonoBehaviour
     public const string CHIP_TAG = "Chip";
     public const string POINTER_TAG = "Pointer";
 
-    public bool IsWin = false;
+
 
     private void Awake()
     {
@@ -28,13 +30,6 @@ public class GlobalVar : MonoBehaviour
 
     public void Win()
     {
-        IsWin = true;
+        isWin = true;
     }
-}
-[System.Serializable]
-public class ColorsChip
-{
-    [SerializeField] public int count;
-    [SerializeField] public Color color;
-    [SerializeField] public string name;
 }
