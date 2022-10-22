@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GlobalVar : MonoBehaviour
@@ -8,8 +6,8 @@ public class GlobalVar : MonoBehaviour
     public static GameObject[] AllChip;
     public static GameObject[] AllPointer;
 
-    [SerializeField] private bool isWin = false;
     [SerializeField] public ColorsChip[] typyOfChip;
+    [SerializeField] private GameObject WinWindows;
 
     public static GameObject GameController;
 
@@ -30,6 +28,6 @@ public class GlobalVar : MonoBehaviour
 
     public void Win()
     {
-        isWin = true;
+        WinWindows.SetActive(true);
     }
 }

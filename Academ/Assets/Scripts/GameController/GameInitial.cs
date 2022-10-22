@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameInitial : MonoBehaviour
@@ -13,13 +11,13 @@ public class GameInitial : MonoBehaviour
     {
         AllColorChip = GameController.GetComponent<GlobalVar>().typyOfChip;
         AllPointer = GlobalVar.AllPointer;
-        for (int i = 0; i <= 2; i++)
+        for (int i = 0; i < AllColorChip.Length; i++)
         {
             FillMap(i);
-            SetPointerColor(AllPointer[i],i);
+            SetPointerColor(AllPointer[i], i);
         }
     }
-    void FillMap(int color)
+    private void FillMap(int color)
     {
         ColorsChip myColor = AllColorChip[color];
         int i = 0;
@@ -41,7 +39,7 @@ public class GameInitial : MonoBehaviour
             }
         }
     }
-    void SetPointerColor(GameObject pointer ,int color)
+    private void SetPointerColor(GameObject pointer, int color)
     {
         ColorsChip myColor = AllColorChip[color];
         pointer.GetComponent<Pointer>().MyColorName = myColor.name;

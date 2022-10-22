@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Chip : MonoBehaviour
@@ -15,7 +13,6 @@ public class Chip : MonoBehaviour
         for(int i = 0; i < GlobalVar.AllPointer.Length; i++)
         {
             IsWin = GlobalVar.AllPointer[i].GetComponent<Pointer>().CheckVictory();
-            Debug.Log(IsWin);
             if(!IsWin)
             {
                 break;
